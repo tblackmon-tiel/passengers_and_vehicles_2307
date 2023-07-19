@@ -46,11 +46,11 @@ RSpec.describe Park do
       park = Park.new("Mesa Verde", 10)
       fusion = Vehicle.new("2020", "Ford", "Fusion")
       yukon = Vehicle.new("2005", "GMC", "Yukon")
-      tyler = Person.new("Tyler", 27)
-      kiwi = Person.new("Kiwi", 5)
-      chicken = Person.new("Chicken", 6)
-      bill = Person.new("Bill", 65)
-      josh = Person.new("Josh", 34)
+      tyler = Passenger.new({"name" => "Tyler", "age" => 27})
+      kiwi = Passenger.new({"name" => "Kiwi", "age" => 5})
+      chicken = Passenger.new({"name" => "Chicken", "age" => 6})
+      bill = Passenger.new({"name" => "Bill", "age" => 65})
+      josh = Passenger.new({"name" => "Josh", "age" => 34})
 
       expect(park.passengers).to be_empty
 
