@@ -92,4 +92,82 @@ RSpec.describe Park do
       expect(park.revenue).to eq(30)
     end
   end
+
+  describe "#all_attendees" do
+    it "returns an array of all attendee names" do
+      park = Park.new("Mesa Verde", 10)
+      fusion = Vehicle.new("2020", "Ford", "Fusion")
+      yukon = Vehicle.new("2005", "GMC", "Yukon")
+      tyler = Passenger.new({"name" => "Tyler", "age" => 27})
+      kiwi = Passenger.new({"name" => "Kiwi", "age" => 5})
+      chicken = Passenger.new({"name" => "Chicken", "age" => 6})
+      bill = Passenger.new({"name" => "Bill", "age" => 65})
+      josh = Passenger.new({"name" => "Josh", "age" => 34})
+
+      expect(park.revenue).to eq(0)
+
+      fusion.add_passenger(tyler)
+      fusion.add_passenger(kiwi)
+      fusion.add_passenger(chicken)
+      yukon.add_passenger(bill)
+      yukon.add_passenger(josh)
+
+      park.add_vehicle(fusion)
+      park.add_vehicle(yukon)
+
+      expect(park.all_attendees).to eq(["Bill", "Chicken", "Josh", "Kiwi", "Tyler"])
+    end
+  end
+
+  describe "#minors" do
+    it "returns an array of all minors names" do
+      park = Park.new("Mesa Verde", 10)
+      fusion = Vehicle.new("2020", "Ford", "Fusion")
+      yukon = Vehicle.new("2005", "GMC", "Yukon")
+      tyler = Passenger.new({"name" => "Tyler", "age" => 27})
+      kiwi = Passenger.new({"name" => "Kiwi", "age" => 5})
+      chicken = Passenger.new({"name" => "Chicken", "age" => 6})
+      bill = Passenger.new({"name" => "Bill", "age" => 65})
+      josh = Passenger.new({"name" => "Josh", "age" => 34})
+
+      expect(park.revenue).to eq(0)
+
+      fusion.add_passenger(tyler)
+      fusion.add_passenger(kiwi)
+      fusion.add_passenger(chicken)
+      yukon.add_passenger(bill)
+      yukon.add_passenger(josh)
+
+      park.add_vehicle(fusion)
+      park.add_vehicle(yukon)
+
+      expect(park.minors).to eq(["Chicken", "Kiwi"])
+    end
+  end
+
+  describe "#adults" do
+    it "returns an array of all adult names alphebetized" do
+      park = Park.new("Mesa Verde", 10)
+      fusion = Vehicle.new("2020", "Ford", "Fusion")
+      yukon = Vehicle.new("2005", "GMC", "Yukon")
+      tyler = Passenger.new({"name" => "Tyler", "age" => 27})
+      kiwi = Passenger.new({"name" => "Kiwi", "age" => 5})
+      chicken = Passenger.new({"name" => "Chicken", "age" => 6})
+      bill = Passenger.new({"name" => "Bill", "age" => 65})
+      josh = Passenger.new({"name" => "Josh", "age" => 34})
+
+      expect(park.revenue).to eq(0)
+
+      fusion.add_passenger(tyler)
+      fusion.add_passenger(kiwi)
+      fusion.add_passenger(chicken)
+      yukon.add_passenger(bill)
+      yukon.add_passenger(josh)
+
+      park.add_vehicle(fusion)
+      park.add_vehicle(yukon)
+
+      expect(park.adults).to eq(["Bill", "Josh", "Tyler"])
+    end
+  end
 end

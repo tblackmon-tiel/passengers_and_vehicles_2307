@@ -20,4 +20,16 @@ class Park
   def revenue
     passengers.sum { |passenger| passenger.adult? ? @admission_price : 0 }
   end
+
+  def all_attendees
+    passengers.map { |passenger| passenger.name }.sort
+  end
+
+  def minors
+    passengers.map { |passenger| passenger.adult? ? nil : passenger.name }.compact.sort
+  end
+
+  def adults
+    passengers.map { |passenger| passenger.adult? ? passenger.name : nil }.compact.sort
+  end
 end
