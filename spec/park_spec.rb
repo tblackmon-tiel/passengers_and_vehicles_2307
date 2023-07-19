@@ -10,11 +10,11 @@ RSpec.describe Park do
       expect(park).to be_a Park
     end
 
-    it "has a name and admission fee" do
+    it "has a name and admission price" do
       park = Park.new("Mesa Verde", 10)
 
       expect(park.name).to eq("Mesa Verde")
-      expect(park.admission_fee).to eq(10)
+      expect(park.admission_price).to eq(10)
     end
   end
 end

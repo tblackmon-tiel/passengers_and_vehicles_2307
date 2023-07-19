@@ -1,8 +1,8 @@
 class Park
-  attr_reader :name, :admission_fee
-  
-  def initialize(name, admission_fee)
+  attr_reader :name, :admission_price
+
+  def initialize(name, admission_price)
     @name = name
-    @admission_fee = admission_fee
+    @admission_price = admission_price
   end
 end
