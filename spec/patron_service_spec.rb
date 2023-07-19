@@ -86,7 +86,7 @@ RSpec.describe PatronService do
       ps.add_park(mesa_verde)
       ps.add_park(great_dunes)
 
-      expect(ps.minors).to eq("Kiwi", "Chicken")
+      expect(ps.minors).to eq(["Kiwi", "Chicken"])
     end
   end
 end

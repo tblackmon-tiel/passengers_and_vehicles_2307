@@ -14,4 +14,14 @@ class PatronService
       park.passengers.map { |passenger| passenger.name }
     end.flatten
   end
+
+  def minors
+    @parks.map do |park|
+      # this also works, messier?
+      # park.passengers.find_all { |passenger| !passenger.adult? }.map do |passenger|
+      #   passenger.name
+      # end
+      park.passengers.map { |passenger| passenger.adult? ? nil : passenger.name }.compact
+    end.flatten
+  end
 end
