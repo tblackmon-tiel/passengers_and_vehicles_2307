@@ -12,7 +12,7 @@ class PatronService
   def all_attendees
     @parks.map do |park|
       park.passengers.map { |passenger| passenger.name }
-    end.flatten
+    end.flatten.sort
   end
 
   def minors
