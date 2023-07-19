@@ -16,4 +16,8 @@ class Park
   def passengers
     @vehicles.map { |vehicle| vehicle.passengers }.flatten
   end
+
+  def revenue
+    passengers.sum { |passenger| passenger.adult? ? @admission_price : 0 }
+  end
 end
