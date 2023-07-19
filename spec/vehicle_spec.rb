@@ -16,6 +16,12 @@ RSpec.describe Vehicle do
       expect(vehicle.make).to eq("Honda")
       expect(vehicle.model).to eq("Civic")
     end
+
+    it "has passengers that starts as an empty array" do
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
+
+      expect(vehicle.passengers).to eq([])
+    end
   end
 
   describe "#speeding?" do
