@@ -89,4 +89,33 @@ RSpec.describe PatronService do
       expect(ps.minors).to eq(["Kiwi", "Chicken"])
     end
   end
+
+  describe "#adults" do
+    it "returns an array of attendees names who are adults" do
+      ps = PatronService.new
+      mesa_verde = Park.new("Mesa Verde", 10)
+      great_dunes = Park.new("Great Sand Dunes", 20)
+      fusion = Vehicle.new("2020", "Ford", "Fusion")
+      yukon = Vehicle.new("2005", "GMC", "Yukon")
+      tyler = Passenger.new({"name" => "Tyler", "age" => 27})
+      kiwi = Passenger.new({"name" => "Kiwi", "age" => 5})
+      chicken = Passenger.new({"name" => "Chicken", "age" => 6})
+      bill = Passenger.new({"name" => "Bill", "age" => 65})
+      josh = Passenger.new({"name" => "Josh", "age" => 34})
+
+      fusion.add_passenger(tyler)
+      fusion.add_passenger(kiwi)
+      fusion.add_passenger(chicken)
+      yukon.add_passenger(bill)
+      yukon.add_passenger(josh)
+
+      mesa_verde.add_vehicle(fusion)
+      great_dunes.add_vehicle(yukon)
+
+      ps.add_park(mesa_verde)
+      ps.add_park(great_dunes)
+
+      expect(ps.adults).to eq(["Tyler", "Bill", "Josh"])
+    end
+  end
 end
