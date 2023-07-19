@@ -37,7 +37,7 @@ RSpec.describe Passenger do
       taylor = Passenger.new({"name" => "Taylor", "age" => 12})
 
       expect(charlie.driver?).to be false
-      charlie.driver
+      charlie.drive
 
       expect(charlie.driver?).to be true
       expect(taylor.driver?).to be false
@@ -50,7 +50,7 @@ RSpec.describe Passenger do
       taylor = Passenger.new({"name" => "Taylor", "age" => 12})
     
       expect(charlie.driver?).to be false
-      charlie.driver
+      charlie.drive
     
       expect(charlie.driver?).to be true
     end
