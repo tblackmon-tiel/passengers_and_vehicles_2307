@@ -33,7 +33,7 @@ RSpec.describe PatronService do
   end
 
   describe "#all_attendees" do
-    it "returns an array of all attendee names at all parks" do
+    it "returns an array of all attendee names at all parks, alphabetically" do
       ps = PatronService.new
       mesa_verde = Park.new("Mesa Verde", 10)
       great_dunes = Park.new("Great Sand Dunes", 20)
@@ -62,7 +62,7 @@ RSpec.describe PatronService do
   end
 
   describe "#minors" do
-    it "returns an array of attendees names who are minors" do
+    it "returns an array of attendees names who are minors, alphabetically" do
       ps = PatronService.new
       mesa_verde = Park.new("Mesa Verde", 10)
       great_dunes = Park.new("Great Sand Dunes", 20)
@@ -91,7 +91,7 @@ RSpec.describe PatronService do
   end
 
   describe "#adults" do
-    it "returns an array of attendees names who are adults" do
+    it "returns an array of attendees names who are adults, alphabetically" do
       ps = PatronService.new
       mesa_verde = Park.new("Mesa Verde", 10)
       great_dunes = Park.new("Great Sand Dunes", 20)

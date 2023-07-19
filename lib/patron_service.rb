@@ -24,4 +24,10 @@ class PatronService
       park.passengers.map { |passenger| passenger.adult? ? nil : passenger.name }.compact
     end.flatten
   end
+
+  def adults
+    @parks.map do |park|
+      park.passengers.map { |passenger| passenger.adult? ? passenger.name : nil }.compact
+    end.flatten
+  end
 end
