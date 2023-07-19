@@ -66,4 +66,30 @@ RSpec.describe Park do
       expect(park.passengers).to eq([tyler, kiwi, chicken, bill, josh])
     end
   end
+
+  describe "#revenue" do
+    it "returns admission_price times total number of adult passengers" do
+      park = Park.new("Mesa Verde", 10)
+      fusion = Vehicle.new("2020", "Ford", "Fusion")
+      yukon = Vehicle.new("2005", "GMC", "Yukon")
+      tyler = Passenger.new({"name" => "Tyler", "age" => 27})
+      kiwi = Passenger.new({"name" => "Kiwi", "age" => 5})
+      chicken = Passenger.new({"name" => "Chicken", "age" => 6})
+      bill = Passenger.new({"name" => "Bill", "age" => 65})
+      josh = Passenger.new({"name" => "Josh", "age" => 34})
+
+      expect(park.revenue).to eq(0)
+
+      fusion.add_passenger(tyler)
+      fusion.add_passenger(kiwi)
+      fusion.add_passenger(chicken)
+      yukon.add_passenger(bill)
+      yukon.add_passenger(josh)
+
+      park.add_vehicle(fusion)
+      park.add_vehicle(yukon)
+
+      expect(park.revenue).to eq(30)
+    end
+  end
 end
